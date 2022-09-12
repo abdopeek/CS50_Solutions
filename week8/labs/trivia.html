@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <script>
+        let counter = 0;
+      document.addEventListener("DOMContentLoaded", function() {
+        let correct_button = document.querySelector("#correct");
+        let wrong = document.querySelectorAll(".incorrect");
+        let message = document.querySelector("#mcq_message1");
+
+        correct_button.addEventListener("click", function() {
+            correct_button.style.backgroundColor = '#00ff00';
+            message.innerHTML = "Correct";
+            counter++;
+        })
+
+        for (let i = 0; i < wrong.length; i++) {
+            wrong[i].addEventListener("click", function() {
+                wrong[i].style.backgroundColor = "#ff0000";
+                message.innerHTML = "Incorrect";
+            })
+        }
+
+        let correct_button2 = document.querySelector("#correct1");
+        let wrong2 = document.querySelectorAll(".incorrect1");
+        let message2 = document.querySelector("#mcq_message2");
+
+        correct_button2.addEventListener("click", function() {
+            correct_button2.style.backgroundColor = "#00ff00";
+            message2.innerHTML = "Correct Answer!";
+        })
+        for (let j = 0; j < wrong2.length; j++) {
+            wrong2[j].addEventListener("click", function() {
+                wrong2[j].style.backgroundColor = "#ff0000";
+                message2.innerHTML = "Incorrect answer!";
+            })
+        }
+
+
+        let correct_answer = "Thomas Eddison";
+        let input = document.querySelector("#answer");
+        let submit_button = document.querySelector("#submission");
+        let message1 = document.querySelector("#message1");
+        submission.addEventListener("click", function(){
+            if (input.value == correct_answer) {
+                input.style.color = "#00ff00"
+                message1.innerHTML = "Correct Answer!";
+                counter++;
+                console.log(counter);
+            }
+            else {
+                input.style.color = "#ff0000";
+                message1.innerHTML = "Incorrect Answer!";
+                console.log(counter);
+            }
+        })
+      })
+
+
+    </script>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the positive charge in an atom?</h3>
+                <button class="incorrect">Electron</button>
+                <button id="correct">Proton</button>
+                <button class="incorrect">Neutron</button>
+                <p id="mcq_message1"></p>
+
+                <h3>In what continent does Sudan fall in?</h3>
+                <button class="incorrect1">Asia</button>
+                <button id="correct1">Africa</button>
+                <button class="incorrect1">Europe</button>
+                <p id="mcq_message2"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Who invented the light bulb?</h3>
+                <input id="answer" type="text">
+                <button id="submission">Check answer</button>
+                <p id="message1"></p>
+            </div>
+        </div>
+    </body>
+</html>
